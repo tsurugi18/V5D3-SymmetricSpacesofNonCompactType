@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\linespread{1} 
+\usepackage{extsizes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ mathrsfs }
+\usepackage{ mathtools}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{tikz-cd} 
+\usepackage{adjustbox} 
+\usetikzlibrary{arrows}
+\newcommand{\midarrow}{\tikz \draw[-triangle 90] (0,0) -- +(.1,0);}
+\tikzset{commutative diagrams/.cd,
+mysymbol/.style={start anchor=center,end anchor=center,draw=none}
+}
+\newcommand\comsymb[2][\circlearrowleft]{%
+  \arrow[mysymbol]{#2}[description]{#1}}
+\theoremstyle{definition} 
+\newtheorem{theorem}{Theorem} [section] 
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{lemma}{Lemma}[section] 
+\newtheorem{notation}{Notation}[section] 
+\newtheorem{remark}{Remark}[section] 
+\newtheorem{corollary}{Corollary} [section] 
+\newtheorem{terminology}{Terminology}[section] 
+\newtheorem{fact}{Fact}[section] 
+\newtheorem{example}{Example}[section] 
+\newtheorem{claim}{Claim}
+\newtheorem*{*theorem}{Theorem} 
+\newtheorem*{*proposition}{Proposition}
+\newtheorem*{*definition}{Definition}
+\newtheorem*{*lemma}{Lemma}
+\newtheorem*{*notation}{Notation}
+\newtheorem*{*remark}{Remark}
+\newtheorem*{*corollary}{Corollary} 
+\newtheorem*{*terminology}{Terminology}
+\newtheorem*{*fact}{Fact}
+\newtheorem*{*example}{Example}
+\newtheorem*{*claim}{Claim}
+\newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
+
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\straw}{s.t.}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\esssup}{esssup}
+\DeclareMathOperator{\abs}{abs}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Homk}{Hom_{k-alg}}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\divergence}{div}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\MaxSpec}{MaxSpec}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\PD}{PD}
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\inte}{int}
+\DeclareMathOperator{\diverg}{div}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\image}{im}
+\DeclareMathOperator{\dR}{dR}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Mnfd}{Mnfd}
+\DeclareMathOperator{\OpEmb}{OpEmb}
+%\newcommand*{\name}[\num_arguments][default values]{{\color{#1}\Large #2}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\norm}[1]{\Vert #1 \Vert}
+\newcommand{\opNorm}[2]{\norm{#1}_{#2\to#2}}
+\newcommand{\normL}[3]{\norm{#1}_{L^{#2}(#3)}}
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\m}[0]{\mathfrak{m}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\C}[0]{\mathbb{C}}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\F}[0]{\mathbb{F}}
+\newcommand{\G}[0]{\mathbb{G}}
+\newcommand{\A}[0]{\mathbb{A}}
+\newcommand{\Para}[0]{\mathbb{P}}
+\newcommand{\M}[0]{\mathcal{M}}
+\newcommand{\maniN}[0]{\mathcal{N}}
+\newcommand{\cinf}[0]{\mathcal{C}^\infty}
+\newcommand{\torus}[0]{\mathbb{T}}
+\newcommand{\sep}[0]{\:|\:}
+\newcommand{\pd}[2]{{\frac {\partial #1} {\partial #2}}}
+\newcommand{\compinc}[0]{\subset \subset}
+\newcommand{\sH}[0]{\mathscr{H}}
+\newcommand{\st}[0]{\:\straw\:}
+\newcommand{\fib}[1]{%
+  \mathbin{\mathop{\times}\limits_{#1}}%
+}
+\newcommand{\tens}[1]{%
+  \mathbin{\mathop{\otimes}\displaylimits_{#1}}%
+}
+
+\title{Analysis and Geometry on Manifolds}
+\author{Lectures given by\\Prof. Matthias Lesch, Dr. Oliver Fürst\\Typed by\\So Murata}
+\date{WiSe 25/26, University of Bonn}
+
+
+\begin{document}
+\maketitle
+\section{Motivation}
+\subsection{Symmetric Spaces in the Wild}
+Élie Cartan published the first in a series of 2 papers titled "Sur une classe remarquable despaces de Riemann".
+A century later, these spaces now known as Riemannain symmetric spaces continued to intriegue, delight and mystify geometers, Lie/group theorist, dynamist, and number theorists.
+
+\begin{definition}
+    Let $(M,g)$ be a connected Riemannian manifold of dimension positive. $M$ is said to be a (Riemannian) locally symmetric space if for every point $o\in M$, there is an open neighborhood $U_o\subseteq M$ of $o$ and an isometry $s_o:U_o\to U_o$ such that $o$ is the unique fixed point of $s_o$ in $U_o$ and $s_o^2 = \id_{U_o}$, (i.e. it is an involution).
+    \par $M$ is a (Riemannian) (globally) symmetric space if for any point $o\in M$, the involution $s_o$ above extends to an isometry of the whole space $M$. We omit globally if it is clear from the context and simply say symmetric.
+\end{definition}
+
+\begin{remark}
+    $s_o$ being locally an involution in a chart forces the extension to also be an involution. However, $s_o$ might admit other fixed point away from $o$.
+    \par It will turn out that the universal cover of a complete Riemannian locally symmetric space is automatically globally symmetric.
+    \par In particular every complete locally symmetric spaces can be obtained as a quotient of a globally symmetric space by a covering space action (i.e. discrete actions by isometries where no non-trivial group element has a fixed point).
+\end{remark}
+
+\begin{example}
+    The complete simply connected Riemannai manifold of constant sectional curvature are globally symmetric. 
+    These are upto scaling, Euclidean spaces $\mathbb{E}^n$, spheres $\mathbb{S}^n$, or hyperbolic spaces $\mathbb{H}^n$.
+\end{example}
+
+We will see that symmetric spaces are homogeneous meaning the isometry groups $\Isom(M)$ of $M$ act transitively on $M$. That is for any $p,q\in M$, there is an isometry $f:M\to M$ such that $f(p) = q$.
+
+\par This course will focus on simply connected symmetric spaces of everywhere non-positive sectional curvature. These spaces are non-compact with the fundamental group of these compact quotients (i.e. the closed non-positiely curved locally symmetric spaces). 
+Any natural examples of finitely generated infinite groups.
+
+\par Among the non-positively curved symmetric spaces, those of non-compact type moreover admit finite volue quotinets that are not compact.
+
+Among the simply connected Riemannian manifold of non-positive curvature, those that are globally symmetric indeed factorize by the properties that they are homogeneous and admit compact quotient.
+\begin{*theorem}
+Let $M$ be a closed non-positively curved Riemannian manifold. If the universal cover $\widetilde{M}$ is homogeneous then $\widetilde{M}$ is globally symmetric. Hence $M$ is locally symmetric.
+\end{*theorem}
+
+There are indeed not-so-many procedures for constructing closed non-positively curved Riemannian manifold that are locally symmetric. 
+\begin{remark}[Open Problem]
+    Is there a natural number $k$ such that for any closed non-positively curved Riemannian manifold $M$, the fundamental group of $M$ contains a subgroup isomorphic to the fundamental group of a closed non-positively curved locally symmetric space of dimension at least $\dim M-k$.
+\end{remark}
+\subsection{Remarks on Negatively Curved Locally Symmetric Spaces}
+
+Let $(M,g)$ be a closed Riemannian manifold of (strict) negative curvature. We denote,
+\begin{equation*}
+    P_g(R) \defeq \left\{\substack{\text{Primitive oriented closed}\\\text{geodesics in $(M,g)$ of length at most $R$}}\right\}
+\end{equation*}
+
+We further define,
+\begin{equation*}
+    h(g) \defeq \lim_{R\to \infty}{\frac 1 {R}} \log(\#P_g(R)).
+\end{equation*}
+
+Let us denote $B_{\widetilde{g}}(x,R)$ to be the ball in the universal cover $\widetilde{M}$ centered around $x$ with radius $R$. The above quantity can also be described by 
+\begin{equation*}
+    h(g) = \lim_{R\to \infty}{\frac 1 R}\log(\vol(B_{\widetilde{g}}(x,R))).
+\end{equation*}
+\begin{theorem}
+    Let $(M,g)$ be a closed negatively curved Riemannian manifold and suppose $M$ admits a (necessarily negatively curved) locally symmetric metric $g_0$. Assume that $g$ and $g_0$ are normalized
+    so that the maximum sectional curvature for each $g$ and $g_0$ is $-1$, then $h(g)>h(g_0)$ with equality hold if and only if $g$ is locally symmetric.
+\end{theorem}
+\begin{theorem}
+    Same assumption but this time instead of normalizing to that maximum symmetric curvatures coincide, normalize so that $\vol(M,g) = \vol(M,g_0)$. Then the same conclusion holds.
+\end{theorem}
+
+If $(M,g)$ is closed and negatively curved, there is a sectional geodesic flow-invariant probability measure on $T^1M$, namely the Liouville measure denoted by $\mu_L$.
+Any primitive closed geodesic $\gamma$ in $M$ also gives rise to a geodesic flow-invariant probability measure $\delta_\gamma$ on$T^1M$, supported and uniformly distributed on the periodic orbit in $T^1M$ projecting to $\gamma$.
+
+\begin{theorem}
+    As $R\to \infty$, the probability measure 
+    \begin{equation*}
+        {\frac 1 {\# P_g(R)}}\sum_{\gamma\in P_g(R)}\delta_\gamma,
+    \end{equation*}
+    convergeto the weak-$\star$-sense to some measure $\mu_{\mathrm{BM}}$ on $T^1M$ that is geodesic flow-invariant.
+    \par Moreover, if $g$ is locally symmetric then $\mu_L = \mu_{\mathrm{BM}}$.
+\end{theorem}
+\begin{remark}
+    It is still unknown that if $(M,g)$ is a closed negatively curved Riemannian manifold for which $\mu_L=\mu_{\mathrm{BM}}$ then $g$ is locally symmetric.
+\end{remark}
+
+The goal of this course will be to prove the following theorem modulo black boxes, in the case that each of $M_i$ is not of strict negative curvature.
+\begin{theorem}
+    Let $(M_1,g_1),(M_2,g_2)$ be closed non-positively curved locally symmetric manifolds of dimension at least $3$. Suppose neither of their universal covers splits as a non-trivial Riemannian product.
+    If their fundamental groups are isomorphic then they are isometric upto scaling.
+\end{theorem}
+
+\end{document}
