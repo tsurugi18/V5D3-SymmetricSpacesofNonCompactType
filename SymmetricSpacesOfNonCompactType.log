@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=latex 2025.10.19)  13 OCT 2026 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=latex 2025.10.19)  16 OCT 2026 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -520,19 +520,27 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 [3]
 
-[4] (./SymmetricSpacesOfNonCompactType.aux)
+[4]
+
+[5]
+
+[6]
+
+[7]
+
+[8] (./SymmetricSpacesOfNonCompactType.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16875 strings out of 473191
- 354008 string characters out of 5715825
- 829635 words of memory out of 5000000
- 39817 multiletter control sequences out of 15000+600000
- 569399 words of font info for 80 fonts, out of 8000000 for 9000
+ 17014 strings out of 473191
+ 357380 string characters out of 5715825
+ 832954 words of memory out of 5000000
+ 39955 multiletter control sequences out of 15000+600000
+ 569746 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,12n,121p,594b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,12n,121p,594b,1043s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on SymmetricSpacesOfNonCompactType.dvi (4 pages, 20684 bytes).
+Output written on SymmetricSpacesOfNonCompactType.dvi (8 pages, 36848 bytes).
