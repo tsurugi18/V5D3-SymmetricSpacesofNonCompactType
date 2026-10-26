@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1792158402.54206 "SymmetricSpacesOfNonCompactType.dvi" "SymmetricSpacesOfNonCompactType.pdf" "SymmetricSpacesOfNonCompactType" 1792158402.69868 0
-  "SymmetricSpacesOfNonCompactType.dvi" 1792158402.51871 36848 01a3bd225f3ac6263bc6f1d87eba97b2 "latex"
+["dvipdf"] 1792763076.62173 "SymmetricSpacesOfNonCompactType.dvi" "SymmetricSpacesOfNonCompactType.pdf" "SymmetricSpacesOfNonCompactType" 1792763076.78652 0
+  "SymmetricSpacesOfNonCompactType.dvi" 1792763076.59818 84172 9891553286867284d0cbbd3a72675473 "latex"
   (generated)
   "SymmetricSpacesOfNonCompactType.pdf"
   (rewritten before read)
-["latex"] 1792158402.17211 "/Users/tsurugi/Desktop/Universities/UniBonn/Semester5/V5D3-SymmetricGroupsOfNonCompactType/Notes/SymmetricSpacesOfNonCompactType.tex" "SymmetricSpacesOfNonCompactType.dvi" "SymmetricSpacesOfNonCompactType" 1792158402.6976 0
-  "/Users/tsurugi/Desktop/Universities/UniBonn/Semester5/V5D3-SymmetricGroupsOfNonCompactType/Notes/SymmetricSpacesOfNonCompactType.tex" 1792158401.48051 18797 4f64bd529188458b6835fb207b7fcd01 ""
+["latex"] 1792763075.98449 "/Users/tsurugi/Desktop/Universities/UniBonn/Semester5/V5D3-SymmetricGroupsOfNonCompactType/Notes/SymmetricSpacesOfNonCompactType.tex" "SymmetricSpacesOfNonCompactType.dvi" "SymmetricSpacesOfNonCompactType" 1792763076.78551 0
+  "/Users/tsurugi/Desktop/Universities/UniBonn/Semester5/V5D3-SymmetricGroupsOfNonCompactType/Notes/SymmetricSpacesOfNonCompactType.tex" 1792763075.77907 35683 be47366254945a7aa78ff3f8db078b04 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -148,8 +148,8 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/latex.fmt" 1760893821 3345650 f2179b917b551c7214098855962de784 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "SymmetricSpacesOfNonCompactType.aux" 1792158402.5183 1293 104615a6a4a222ba4b2c359818c73899 "latex"
-  "SymmetricSpacesOfNonCompactType.tex" 1792158401.48051 18797 4f64bd529188458b6835fb207b7fcd01 ""
+  "SymmetricSpacesOfNonCompactType.aux" 1792763076.59762 1985 c9a785367eb13eab06c97b125371fc0d "latex"
+  "SymmetricSpacesOfNonCompactType.tex" 1792763075.77907 35683 be47366254945a7aa78ff3f8db078b04 ""
   (generated)
   "SymmetricSpacesOfNonCompactType.aux"
   "SymmetricSpacesOfNonCompactType.dvi"

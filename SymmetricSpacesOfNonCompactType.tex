@@ -42,6 +42,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \newtheorem*{*fact}{Fact}
 \newtheorem*{*example}{Example}
 \newtheorem*{*claim}{Claim}
+\newtheorem{exercise}{Exercise}
 \newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
 
 \DeclareMathOperator{\triv}{triv}
@@ -212,24 +213,24 @@ The goal of this course will be to prove the following theorem modulo black boxe
 \subsection{Some Riemannian Geometry}
 
 \begin{definition}
-    \label{definition_2_0}
+    \label{definition_1_0}
     Let $M$ be a connected smooth manifold. A vector field $X$ on $M$ is a smooth section of the tangent bundle $\tau:TM\to M$.
 \end{definition}
 
 \begin{definition}
-    \label{definition_2_1}
+    \label{definition_1_1}
     Let $M$ be a connected smooth manifold. A Riemannian metric $g$ on $M$ is a map that associates 
     to each point $p\in M$ an inner product $g_p$ on $T_pM$ such that for any smooth vector field $X,Y$ on $M$, 
     \begin{equation*}
         M\ni p\mapsto g_p(X_p,Y_p)\in\R,
     \end{equation*}
-    is smooth. A tuple $(M,g)$ is then called a Riemmanian manifold.
+    is smooth. Such tuple $(M,g)$ is called a Riemmanian manifold.
 \end{definition}
 
 The notion of Riemannian metric leads us to the definitions of length and angle on manifolds.
 
 \begin{definition}
-    \label{definition_2_2}
+    \label{definition_1_2}
     \label{definition_metric_manifold}
     For a closed interval $[a,b]\subseteq\R$, a smooth path $[a,b]\to M$ is the restriction of some smooth map $I\to M$ where $I$ is an open interval in $\R$ to $[a,b]$.
     The length of a smooth path $c:[a,b]\to M$ with respect to the metric $g$ is 
@@ -238,25 +239,26 @@ The notion of Riemannian metric leads us to the definitions of length and angle 
     \end{equation*}
     The Riemannian distance between two points $p,q$ of $M$ is given by the metric $g$ is 
     \begin{equation*}
-    d_g(p,q) \defeq \inf\left\{l_g(c)\:\bigg{\vert}\:\substack{\text{$c$ is a piecewise smooth paht}\\\text{connecting $p$ and $q$}}\right\}.
+    d_g(p,q) \defeq \inf\left\{l_g(c)\:\bigg{\vert}\:\substack{\text{$c$ is a piecewise smooth path}\\\text{connecting $p$ and $q$}}\right\}.
     \end{equation*}
     $d_g$ defines a metric on $M$ in the sense of metric spaces.
 \end{definition}
 
 \begin{definition}
-    \label{definition_2_3}
+    \label{definition_1_3}
     \label{definition_geodesic}
     For an open interval $I\subseteq\R$, a geodesic $c:I\to M$ is a smooth path that is locally length minimizing. That is for any $t\in I$, there is a closed subinterval $t\in [a,b]\subseteq I$ such that 
     \begin{equation*}
         l_g(c|_{[a,b]}) = d_g(c(a),c(b)).
     \end{equation*}
     For a compact closed interval $J\subseteq \R$, a geodesic $c:J\to M$ is defined as a restriction of some geodesic on an open interval containing $J$ to $J$.
+    \par A geodesic is said to be complete if its domain is the whole $\R$.
 \end{definition}
 
 We will also assume that geodesics are parametrized with respect to one length on possibly affine reparametrization thereof.
 
 \begin{definition}
-    \label{definition_2_4}
+    \label{definition_1_4}
     \label{definition_riemannain_isometry}
     A Riemannian isometry between Riemannain manifolds is a diffeomorphism $f:(M,g)\to (N,h)$ such that 
     \begin{equation*}
@@ -315,7 +317,8 @@ M \arrow[r, "f"']                        & M
      \end{center}
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem}[Rigidity of Isometries]
+    \label{theorem_1_3}
     Let $f_1,f_2:(M,g)\to (N,g)$ be isometries between connected Riemannian manifolds. Suppose there is a point $p\in M$ such that 
     \begin{equation*}
         f_1(p) = f_2(p), D_pf_1 = D_p f_2.
@@ -346,7 +349,7 @@ M \arrow[r, "f"']                        & M
 \end{proof}
 
 \begin{theorem}[Hopf-Rinow]
-    \label{theorem_2_3}
+    \label{theorem_1_4}
     For a (connected) Riemannian manifold $M$, the following statements are equivalent.
     \begin{enumerate}[(i).]
         \item $M$ is a proper metric space (i.e., closed and bounded subsets of $M$ are compact).
@@ -358,7 +361,7 @@ M \arrow[r, "f"']                        & M
 \end{theorem}
 
 \begin{definition}
-    A Riemannian manifold is said to be complete if one of the equivalent conditions in Theorem \ref{theorem_2_3} holds.
+    A Riemannian manifold is said to be complete if one of the equivalent conditions in Theorem \ref{theorem_1_3} holds.
 \end{definition}
 
 \begin{definition}
@@ -380,8 +383,39 @@ where $C,U\subseteq M$ are subsets of $M$ such that $C$ is compact and $U$ is op
 
 \begin{proposition}
     \label{proposition_1_5}
-    Let $M$ be a (connected) complete Riemannian manifold. Then $\Isom(M)$ is locally compact under the compact open topology.
+    Let $M$ be a (connected) complete Riemannian manifold. Then $\Isom(M)$ is locally compact under the compact open topology. 
+    Moreover, $\Stab_{\Isom(M)}(p)$ is a compact Lie group.
 \end{proposition}
+
+\begin{proof}[Sketch of the Proof]
+    Let $p\in M$ and $B\subseteq M$ be a compact neighborhood of $p$ in $M$. Then the subset 
+    \begin{equation*}
+        \mathcal{C}(p,B) = \{f\in\Isom(M)\sep f(p)\in B\}
+    \end{equation*}
+    is a closed neighborhood of the identity in $\Isom(M)$. Since $B$ has an open neighborhood of $p$ by the completeness assumption, hence $\mathcal{C}(p,U)$ is an open neighborhood of the identity contained in $\mathcal{C}(p,B)$. 
+    We claim that $\mathcal{C}(p,B)$ is compact. Consider the restriction map,
+    \begin{equation*}
+        \Isom(M)\ni f\mapsto f|_B\in C(B,M).
+    \end{equation*}
+    This map turns out to be a homeomorphism  onto the image. For example, the injectivity is due to the rigidity of isometries (i.e., Theorem \ref{theorem_1_3}). 
+    Thus it suffices by Arzela-Ascoli to show that $\{f|_B\sep f\in\mathcal{C}(p,B)\}$ is equicontinuous and pointwise relatively compact. 
+    The equicontinuity follows easily from the fact that this subset of $C(B,M)$ consists of isometries. 
+    For the relatively compactness, we want to show that for any $x\in B$, $\{f(x)\sep f\in \mathcal{C}(p,B)\}$ is relatively compact (i.e., it has a compact closure in $M$). Since $M$ is complete, enough to show that $\{f(x)\sep f\in \mathcal{C}(p,B)\}$ is bounded. 
+    To see the boundedness, for any $f\in\mathcal{C}(p,B)$,
+    \begin{equation*}
+        d(f(x),p)\leq \underbrace{d(f(x),f(p))}_{=d(x,p)}+\underbrace{d(f(p),p)}_{\in B}\leq 2\cdot\mathrm{diam}(B).
+    \end{equation*}
+    We then conclude that $\mathcal{C}$ is indeed compact.
+    \par Now let $K=\Stab_{\Isom(M)}(p)$. Then 
+    \begin{equation*}
+        K\ni f\mapsto D_pf\in O(T_pM),
+    \end{equation*}
+    induces an isomorphism of topological groups between $K$ and some closed subgroup of the orthogonal group $O(T_pM)$ and the latter is a compact Lie group (i.e., the injectivity follows again from the rigidity of isometries). 
+\end{proof}
+
+\begin{exercise}
+Show that the isometry group of a connected Riemannian manifold is locally compact.
+\end{exercise}
 
 \begin{remark}
     Proposition \ref{proposition_1_5} holds without completness assumption on $M$.
@@ -392,6 +426,286 @@ where $C,U\subseteq M$ are subsets of $M$ such that $C$ is compact and $U$ is op
     is a basis element of the compact open topology on $\Isom(M)$ which contains $\id_M$.
 \end{remark}
 
+%10/20
+
+\section{Symmetric Spaces : Definitions and Fast Examples}
+
+\begin{definition}
+    \label{definition_2_1}
+    A connected Riemannian manifold $M$ of positive dimension is said to be a (Riemannian) locally symmetric space if for any $o\in M$, there is a connected open neighborhood $U_o$ of $o$ in $M$ and an isometry $s_o:U_o\to U_o$ such that 
+    \begin{enumerate}
+        \item $s_o$ is an involusion (i.e., $s_o^2=\id_{U_o}$),
+        \item $o$ is the unique fixed point of $s_o$. 
+    \end{enumerate}
+    Such $s_o$ is said to be geodesic symmetry at $o$.
+    \par $M$ is said to be a (Riemannian) (global) symmetric space if for any $o\in M$, there is an open neighborhood $U_o$ of $o$ and an isometry $s_o$ as above and moreover $s_o$ extends to an isometry of the whole space $s_o:M\to M$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma_2_2_1}
+    A real square matrix which is a solution to $X^2-I=0$ is diagonalizable over the complex numbers.
+\end{lemma}
+
+\begin{lemma}
+    \label{lemma_2_2}
+    Let $M$ be a Riemannian manifold of positive dimension and $o\in M$. For an isometry $s_o\in \Isom(M)$, the following statements are equivalent.
+    \begin{enumerate}[1. ]
+        \item $s_o$ is an involution and $o$ is an isolated fixed point of $s_o$.
+        \item $D_os_o = -\id_{T_oM}$.
+    \end{enumerate}
+    In this case, for any geodesic $c:(-\varepsilon,\varepsilon)\to M$ with $c(0) = 0$ and $t\in (-\varepsilon,\varepsilon)$,
+    \begin{equation*}
+        s_o(c(t)) = c(-t)
+    \end{equation*}
+    for $\varepsilon$ sufficiently small.
+\end{lemma}
+
+\begin{proof}
+    \textbf{2}$\Rightarrow$\textbf{1}. Let $U=\Exp_o(S)$ be a normal neighborhood of $o$ in $M$ where $S$ is a starshaped neighborhood of $0$ in $T_oM$ (this is possible as $\Exp_o$ is defined and is a diffeomorphism, hence one can take $S$ to be a ball around $o$), then for any $v\in S$,
+    \begin{equation*}
+        s_o(\Exp_o(v)) = \Exp_o(D_os_ov) = \Exp_o(-v).
+    \end{equation*}
+    Hence $s_o$ is an involusion and only fixes the origin in a neighborhood of $o$.
+    \par Conversely, since $s_o$ is involusion, $D_os_o$ is diagonalizable over $\C$ by Lemma \ref{lemma_2_2_1}. Because this is of order $2$, the eigenvalues are either $1$ or $-1$. Let $E_1,E_{-1}$ be eigen spaces corresponding to these eigenvalues. 
+    Suppose there is $v\in E_1\backslash\{0\}$, then for all $t>0$ sufficiently small, 
+    \begin{equation*}
+        s_o(\Exp_o(tv)) = \Exp_o(D_os_o(tv)) = \Exp_o(tv).
+    \end{equation*}
+    By the assumption, $s_o$ only admits a single fixed point in a small neighborhood of $o$, hence $v=0$ showing $E_{-1}=T_oM$.
+\end{proof}
+
+\begin{example}
+    The Euclidean space $\mathbb{E}^n$ with the standard metric is globally symmetric. The geodesic symmetry at the origin is $-I_n$. 
+    From the the minimizing conditions of geodesics, we see that if $c:\R\to \mathbb{E}^n$ is a geodesic, we have 
+    \begin{equation*}
+    {\frac {d^2c} {dt^2}} =0.
+    \end{equation*}
+    Hence the images of complete geodesics in $\mathbb{E}^n$ are the affine line, and isometries of $\mathbb{E}^n$ are maps of the form 
+    \begin{equation*}
+        x\mapsto Ax+b
+    \end{equation*}
+    where $A\in O(n)$ and $b\in \R^n$. This gives a continuous isomorphism,
+    \begin{equation*}
+        \Isom(\mathbb{E}^n)\cong \R^n\rtimes O(n),
+    \end{equation*}
+    where the action of $O(n)$ on $\R^n$ is the canonical matrix multiplication.
+\end{example}
+
+\begin{example}
+The unit sphere $\mathbb{S}^n\subseteq\R^{n+1}$is globally symmetric where the metric in $\mathbb{S}^n$ is induced from $\mathbb{R}^{n+1}$. The map 
+\begin{equation*}
+    O(n+1)\to \Isom(\mathbb{S}^n)
+\end{equation*}
+given by restricting to $S^n$ is an isomorphism of topological groups, and the geodesic symmetry at the pole $(0,\cdots,0,1)\in \mathbb{S}^n$ is given by 
+\begin{equation*}
+    \begin{pmatrix}
+        -I_n & \:\\
+        \: & 1
+    \end{pmatrix}
+    \in O(n+1).
+\end{equation*}
+The images of complete geodesics in $\mathbb{S}^n$ are the great circles (i.e., intersections of $\mathbb{S}^n$ with the linear subspaces of dimension $2$ in $\R^{n+1}$).
+\end{example}
+
+\begin{example}
+    Let $Q \defeq \begin{pmatrix}
+        I_n &\:\\
+        \: & -1
+    \end{pmatrix}\in \Mat_{(n+1)\times (n+1)}(\R)$ and $(\cdot,\cdot)$ be the non-degenerate symmetric bilinear form on $\R^{n+1}$ given by 
+    \begin{equation*}
+        (x,y) = x^TQy, \forall x,y\in\R^{n+1}.
+    \end{equation*}
+    Then $\{x\in \R^{n+1}\sep (x,x)=-1\}$ is a $2$-sheeted hyperboloid. Let 
+    \begin{equation*}
+        \mathbb{H}^n\defeq\{x\in\R^{n+1}\sep (x,x) = -1, x_{n+1}>0\},
+    \end{equation*}
+    be the upper sheet. We endow $\mathbb{H}^n$ with a Riemannian metric induced by the form $(\cdot,\cdot)$ on $\R^{n+1}$. Below is the depiction of $2$-sheeted hyperboloid in the case when $n=2$. Note that the restriction of the inner product to $xy$-plane is positive definite hence induces a Riemannian metric on $\mathbb{H}^2$.
+    \begin{center}
+\begin{tikzpicture}[domain=0:2, scale = 0.75]
+  \draw[black, line width = 0.50mm, dashed]   plot[smooth,domain=-2:2] (\x, {5*(0.0625*(\x)^2+0.125)^(0.5)});
+  \draw[black, line width = 0.50mm, dashed]   plot[smooth,domain=-2:2] (\x, {-5*(0.0625*(\x)^2+0.125)^(0.5)});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2.5:2.5] (\x, {1.25*\x});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2.5:2.5] (\x, {-1.25*\x});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2:2] (\x, {0.139*(4.41-(\x)^2)^(0.5)+3.125});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2:2] (\x, {-0.139*(4.41-(\x)^2)^(0.5)+3.125});
+  \draw[black, line width = 0.50mm, dashed]   plot[smooth,domain=-2:2] (\x, {0.139*(4.41-(\x)^2)^(0.5)-3.125});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2:2] (\x, {-0.139*(4.41-(\x)^2)^(0.5)-3.125});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2.5:2.5] (\x, {0.2*(6.25-(\x)^2)^(0.5)+3.125});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2.5:2.5] (\x, {-0.2*(6.25-(\x)^2)^(0.5)+3.125});
+  \draw[black, line width = 0.50mm, dashed]   plot[smooth,domain=-2.5:2.5] (\x, {0.2*(6.25-(\x)^2)^(0.5)-3.125});
+  \draw[black, line width = 0.50mm]   plot[smooth,domain=-2.5:2.5] (\x, {-0.2*(6.25-(\x)^2)^(0.5)-3.125});
+\end{tikzpicture}
+\end{center}
+    Define,
+\begin{align*}
+    O(n,1) &\defeq\{A\in\GL_{n+1}(\R)\sep (Ax,Ay)= (x,y),\forall x,y\in \R^{n+1}\},\\
+    &= \{A\in\GL_{n+1}(\R)\sep A^TQA = Q\},
+\end{align*}
+
+Set 
+\begin{equation*}
+    O^+(n,1) = \{A\in O(n,1)\sep A(\mathbb{H}^n) = \mathbb{H}^n\}.
+\end{equation*}
+This is an index-$2$ subgroup of $O(n,1)$ preserving each sheet.
+
+Then $O^+(n,1)$ acts faithfully by isometries on $\mathbb{H}^+$, in fact inducing an isomorphism $O^+(n,1)\cong\Isom(\mathbb{H}^n)$. Setting $o=(0,\cdots,0,1)\in\mathbb{H}^n$, the geodesic symmetry at $o$ is given by 
+\begin{equation*}
+    \begin{pmatrix}
+        -I &\:\\
+        \: & 1
+    \end{pmatrix}
+    \in O^+(n,1).
+\end{equation*}
+
+The images of complete geodesics in $\mathbb{H}^n$ are given by intersections of $\mathbb{H}^n$ with $2$-dimensional linear subspaces of $\R^{n+1}$.
+
+\end{example}
+%10/23
+
+\begin{example}
+    Let $H$ be a connected compact Lie group eendowed with a bi-invariant Riemannian metric, then $H$ is a globally symmetric space. The geodesic symmetry at the identity $1_H$ will be the inversion $H\ni h\stackrel{\iota}{\mapsto}h^{-1}\in H$. 
+    Note this is indeed an isometry since 
+    \begin{equation*}
+        d(h^{-1},k^{-1}) = d(hh^{-1}k,hk^{-1}k) = d(h,k)
+    \end{equation*}
+    due to the bi-invariance.
+    \par We denote $\Isom^\circ(H)$ to be the identity component of $\Isom(H)$. We certainly have a map 
+    \begin{equation*}
+        H\times H\ni (h_1,h_2)\mapsto (h\mapsto h_1hh_2^{-1})\in\Isom^\circ(H).
+    \end{equation*}
+    This map can fail to be injective. The kernel of this map is $\Delta(Z(H))\subseteq H\times H$ which can be computed easily. It turns out that the induced map,
+    \begin{equation*}
+        H\times H/\Delta(Z(H))\hookrightarrow \Isom^\circ(H)
+    \end{equation*}
+    is an isomorphism. (Warning : surjectivity is highly non-trivial).
+    \par Geodesics $\R\stackrel{c}{\to}H$ satisfying $c(0) = 1_H$ is precisely the one parameter subgroups of $H$ (i.e., the continuous homomorphisms $\R\to H$).
+\end{example}
+
+\begin{example}
+    Take $H= \SO(2)$. We can think of $H$ as the group of unit quaternions under which $H$ inherits a bi-invariant Riemannian metric which inherits to $\mathbb{S}^3$. We then get 
+    \begin{equation*}
+        O(4) = \Isom(\mathbb{S}^3)\cong \Isom^\circ(H)\cong \mathrm{SU}(2)\times\mathrm{SU}(2)/\langle (-\id,-\id)\rangle.
+    \end{equation*}
+\end{example}
+
+\begin{exercise}
+    Show that the Riemannian product of the symmetric spaces is again a symmetric space.
+\end{exercise}
+
+\begin{theorem}
+    \label{theorem_2_6}
+    Let $M$ be a symmetric space. Then $M$ is complete and homogeneous.
+\end{theorem}
+\begin{proof}
+    Let $a<b$ and $\xi:(a,b)\to M$ be a geodesic. Set $\varepsilon = {\frac {b-a} 4}$ and $p = \xi(b-\varepsilon)$.
+    Let $\eta:(a+2\varepsilon,b+2\varepsilon)\to M$ be the geodesic such that 
+    \begin{equation*}
+        t\mapsto s_p(\xi(a+b+2\varepsilon-t)),
+    \end{equation*}
+    where $s_p$ is the geodesic symmetry at $p$. We claim that the map 
+    \begin{equation*}
+        (a,b+2\varepsilon)\ni t\mapsto \begin{cases}
+            \xi(t)\quad,(t\in(a,b-\varepsilon]),\\
+            \eta(t),t\in[b-\varepsilon,b+2\varepsilon)
+        \end{cases}
+    \end{equation*}
+    which is the concatenation of $\xi$ and $\eta$ is again a geodesic. First we check this construction is well-defined. 
+    By the existence and the uniqueness of geodesic, it suffices to show that the values and the derivatives of $\xi,\eta$ coincide at $b-\varepsilon$. Indeed 
+    \begin{align*}
+        \xi(b-\varepsilon) &= p = s_p(p) = s_p(\xi(b-\varepsilon))\\
+        & = s_p(\xi(a+b+2\varepsilon-(a+3\varepsilon)))\\
+        & = \eta(a+3\varepsilon)\\
+        & = \eta(b-\varepsilon).
+    \end{align*}
+    Moreover,
+    \begin{align*}
+        \xi'(b-\varepsilon) & = -(-\xi'(b-\varepsilon))\\
+        & = -{\frac d {dt}}\bigg{\vert}_{t=0}\xi(b-\varepsilon-t)\\
+        & = D_ps_p\left({\frac d {dt}}\bigg{\vert}_{t=0}\xi(b-\varepsilon-t)\right)\\
+        & = {\frac d {dt}}\bigg{\vert}_{t=0}s_p(\xi(b-\varepsilon-t))\\
+        & = {\frac d {dt}}\bigg{\vert}_{t=0}s_p(\xi(a+b+2\varepsilon-(a+3\varepsilon+t)))\\
+        & = {\frac d {dt}}\bigg{\vert}_{t=0}(\underbrace{a+3\varepsilon}_{=b-\varepsilon}+t) = \eta(b-\varepsilon).
+    \end{align*}
+    Hence we have verified the completeness. To see that $M$ is homogeneous, note that by completeness, given any $p,q\in M$, there is a geodesic 
+    \begin{equation*}
+        c:[-l,l]\to M\:\st\: c(-l) = p, c(l) = q.
+    \end{equation*}
+    Setting $o = c(0)$, we have 
+    \begin{equation*}
+        s_o(p) = s_o(c(-l)) \underbrace{=}_{\text{\makebox[0pt][c]{Lemma \ref{lemma_2_2}}}} c(l) = q.
+    \end{equation*}
+\end{proof}
+
+\section{Transvections}
+
+    This can be proved using the homogeneity of $M$ which was just proved at the end of the previous section and the fact that $M$ is connected. 
+    We will however prove it again in order to introduce an important type of isometry of $M$
+
+\begin{exercise}
+    \label{exercise_3_2}
+    Let$M$ be a symmetric space and $o\in M$. Then for any $g\in\Isom(M)$, 
+    \begin{equation*}
+        gs_og^{-1} = s_{g(o)}.
+    \end{equation*}
+    In particular, $s_o$ commtus with every element of $\Isom(M)$ that fixes $o$.
+\end{exercise}
+
+\begin{lemma}
+    \label{lemma_3_3}
+    If $M$ is a symetric space, then the map 
+    \begin{equation*}
+        M\ni p\mapsto s_p\in\Isom(M)
+    \end{equation*}
+    is continuous.
+\end{lemma}
+
+\begin{proof}
+    Fix $o\in M$ and let $K\defeq\Stab_{\Isom(M)}(o)$. Then the orbit map 
+    \begin{equation*}
+        \Isom(M)\ni g\mapsto g(o)\in M
+    \end{equation*}
+    descends to a homeomorphism $\Isom(M)/K\to M$ (this is true for any continuous transitive action of a locally compact $\sigma$-compact topological group on a locally compact Hausdorff space). 
+    Moreover, the continuous map 
+    \begin{equation*}
+        \Isom(M)\ni g\mapsto gs_og^{-1}\in\Isom(M)
+    \end{equation*}
+    descends to a map $\Isom(M)/K\to \Isom(M)$ by Exercise \ref{exercise_3_2} and it is continuous by thedefinition of the quotient topology. 
+    But we can express the map $p\mapsto s_p$ as the composition,
+    \begin{center}
+        \begin{tikzcd}
+M \arrow[r, "g(o)\mapsto gK"] & \Isom(M)/K \arrow[r, "gK\mapsto gs_og^{-1}"] & \Isom(M)
+\end{tikzcd}
+    \end{center}
+    where the first map is continuous by Lemma \ref{lemma_3_3}, hence the composition is continuous as both are continuous.
+\end{proof}
+
+\begin{proposition}
+    \label{proposition_3_1} If $M$ is a symmetric space, then $\Isom^\circ(M)$ acts transitively on $M$.
+\end{proposition}
+
+\begin{proof}
+    Fix $o\in M$ and let $p\in M$ be another point. Then by completeness of $M$, there is a geodesic $c:[0,l]\to M$ connecting $o$ to $p$ (i.e., $c(0) = o,c(l) = p$). 
+    Let $g = s_{c(l/2)}s_o$, then 
+    \begin{equation*}
+        g(o) = s_{c(l/2)}(s_o(o)) = s_{c(l/2)}(o) = c(l) = p.
+    \end{equation*}
+    Moreover, we have $g\in\Isom^\circ(M)$ since the map 
+    \begin{equation*}
+        M\ni q\mapsto s_qs_o\in\Isom(M)
+    \end{equation*}
+    is a continuous map by Lemma \ref{lemma_3_3} whose domain is a connected space and hence the image is contained in $\Isom^\circ(M)$ as $s_os_o=\id_M$ lies in the image of the map.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma_3_4}
+    Let $M$ bea symmetric spac, $o\in M$, and $K=\Stab_{\Isom(M)}(o)$. Then $K$ has non-empty intersection with each component of $\Isom(M)$. In particular, $\Isom(M)$ has only finitely many components.
+\end{lemma}
+
+\begin{proof}
+    Let $g\in\Isom(M)$. We need to show that $K\cap g\Isom^\circ(M)\not=\emptyset$. By Proposition \ref{proposition_3_1}, we have $g^{-1}(o) = g_0(o)$ for asome $g_o\in\Isom^\circ(M)$. 
+    Then we obtain, $o = gg_0(o)$ so $gg_0\in K\cap g\Isom^\circ(M)$. To see that $\Isom(M)$ has only finitely many components, note that the identity component $K^\circ$ of $K$ is contained in $\Isom^\circ(M)$.
+    Hence the map $K\to\Isom(M)/\Isom^\circ(M)$ induced by the inclusion $K\subseteq\Isom(M)$ factors through $K/K^\circ$. But sinc $K$ is compact, we have $\vert K/K^\circ\vert$ is finite. Moreover, we have just shown that the map $K\to\Isom(M)$ is onto hence $\vert \Isom(M)/\Isom^\circ(M)\vert$ is finite.
+\end{proof}
 \begin{thebibliography}{9}
 \bibitem{Helgason}
 Sigurdur Helgason, \emph{Differential Geometry, Lie Groups, and Symmetric Spaces}, Graduate Studies in Mathematics, 2001.
